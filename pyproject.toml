@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "taxi"
+version = "0.1.0"
+description = "Trip duration regression and tip classification on NYC taxi data"
+requires-python = ">=3.9"
+dependencies = ["numpy", "pandas", "pyarrow", "scikit-learn>=1.4", "lightgbm", "torch>=2.3", "pyyaml"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

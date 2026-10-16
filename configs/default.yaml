@@ -1,0 +1,32 @@
+data:
+  dir: data
+  train_month: "2024-01"     # train and validate on this month
+  test_month: "2024-02"      # test on the following month (temporal shift)
+  n_train: 1000000           # subsample for speed, null to use every trip
+  n_test: 500000
+  val_frac: 0.1
+
+models: [baseline, linear, hgb, lightgbm, mlp]
+
+hgb:
+  max_iter: 500
+  learning_rate: 0.1
+  max_leaf_nodes: 63
+
+lightgbm:
+  n_estimators: 2000
+  learning_rate: 0.05
+  num_leaves: 127
+  early_stopping_rounds: 50
+
+mlp:
+  hidden: [256, 128]
+  dropout: 0.1
+  emb_dim: 16
+  epochs: 8
+  batch_size: 4096
+  lr: 0.001
+  patience: 2
+
+seed: 0
+out_dir: runs
