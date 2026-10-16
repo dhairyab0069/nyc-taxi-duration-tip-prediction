@@ -90,4 +90,6 @@ src/taxi/mlp.py           PyTorch MLP with embeddings
 src/taxi/metrics.py       regression and classification metrics
 scripts/run.py            train all models, evaluate on val and next month
 tests/                    cleaning, leakage, and model sanity checks on synthetic data
+logs/                     SLURM logs from the reported run (see logs/README.md)
+runs/                     results.json for each task
 ```

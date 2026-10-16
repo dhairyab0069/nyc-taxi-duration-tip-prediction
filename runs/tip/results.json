@@ -1,0 +1,159 @@
+{
+  "config": {
+    "data": {
+      "dir": "data",
+      "train_month": "2024-01",
+      "test_month": "2024-02",
+      "n_train": 1000000,
+      "n_test": 500000,
+      "val_frac": 0.1
+    },
+    "models": [
+      "baseline",
+      "linear",
+      "hgb",
+      "lightgbm",
+      "mlp"
+    ],
+    "hgb": {
+      "max_iter": 500,
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 63
+    },
+    "lightgbm": {
+      "n_estimators": 2000,
+      "learning_rate": 0.05,
+      "num_leaves": 127,
+      "early_stopping_rounds": 50
+    },
+    "mlp": {
+      "hidden": [
+        256,
+        128
+      ],
+      "dropout": 0.1,
+      "emb_dim": 16,
+      "epochs": 8,
+      "batch_size": 4096,
+      "lr": 0.001,
+      "patience": 2
+    },
+    "seed": 0,
+    "out_dir": "runs"
+  },
+  "results": {
+    "baseline": {
+      "val": {
+        "auroc": 0.6857994525453175,
+        "avg_precision": 0.973464683006421,
+        "brier": 0.03756711078565772,
+        "accuracy": 0.959783786476691,
+        "f1": 0.9793178542834268,
+        "positive_rate": 0.9533945274065586
+      },
+      "test": {
+        "auroc": 0.6819331338996042,
+        "avg_precision": 0.9718229353277318,
+        "brier": 0.03802268533487888,
+        "accuracy": 0.9593499992513812,
+        "f1": 0.9790761120873023,
+        "positive_rate": 0.9521732403715145
+      },
+      "fit_seconds": 0.0
+    },
+    "linear": {
+      "val": {
+        "auroc": 0.7509345292496264,
+        "avg_precision": 0.9792535837135924,
+        "brier": 0.03300806410020601,
+        "accuracy": 0.9651143963831562,
+        "f1": 0.9820325479655918,
+        "positive_rate": 0.9533945274065586
+      },
+      "test": {
+        "auroc": 0.7447955542840613,
+        "avg_precision": 0.9780647483652798,
+        "brier": 0.03378833613932497,
+        "accuracy": 0.9643906991600497,
+        "f1": 0.9816429495805021,
+        "positive_rate": 0.9521732403715145
+      },
+      "fit_seconds": 7.5
+    },
+    "hgb": {
+      "val": {
+        "auroc": 0.7545011062769386,
+        "avg_precision": 0.97964022103078,
+        "brier": 0.03297057737480615,
+        "accuracy": 0.9651393057752425,
+        "f1": 0.9820458379571128,
+        "positive_rate": 0.9533945274065586
+      },
+      "test": {
+        "auroc": 0.7472489167707292,
+        "avg_precision": 0.9785577654648311,
+        "brier": 0.03373065600913707,
+        "accuracy": 0.964418148515988,
+        "f1": 0.9816581618542763,
+        "positive_rate": 0.9521732403715145
+      },
+      "fit_seconds": 3.5
+    },
+    "lightgbm": {
+      "val": {
+        "auroc": 0.7515425139390322,
+        "avg_precision": 0.9793803064564502,
+        "brier": 0.033005800549653866,
+        "accuracy": 0.9651143963831562,
+        "f1": 0.98203277847269,
+        "positive_rate": 0.9533945274065586
+      },
+      "test": {
+        "auroc": 0.7472996903097374,
+        "avg_precision": 0.9784981157180912,
+        "brier": 0.03373370513169317,
+        "accuracy": 0.9644156531199937,
+        "f1": 0.9816566159672341,
+        "positive_rate": 0.9521732403715145
+      },
+      "fit_seconds": 5.0,
+      "feature_importance_gain": {
+        "ratecode": 572423.6608958244,
+        "DOLocationID": 91692.3531589508,
+        "PULocationID": 46973.1370806694,
+        "fare_per_mile": 17462.10724210739,
+        "tod_cos": 15459.672808647156,
+        "trip_distance": 15341.014830589294,
+        "duration_min": 15328.530299186707,
+        "tod_sin": 15132.262191295624,
+        "hour": 12326.431637763977,
+        "fare_amount": 8679.72849559784,
+        "dow": 5505.136878013611,
+        "passenger_count": 5234.981429100037,
+        "vendor": 1811.1604051589966,
+        "is_weekend": 723.1681928634644,
+        "same_zone": 532.4913029670715,
+        "log_distance": 0.0
+      }
+    },
+    "mlp": {
+      "val": {
+        "auroc": 0.7435254125311658,
+        "avg_precision": 0.978882260101559,
+        "brier": 0.03312006965279579,
+        "accuracy": 0.9651393057752425,
+        "f1": 0.9820458379571128,
+        "positive_rate": 0.9533945274065586
+      },
+      "test": {
+        "auroc": 0.7354257479583088,
+        "avg_precision": 0.9771475254753248,
+        "brier": 0.03392393887042999,
+        "accuracy": 0.9644081669320105,
+        "f1": 0.9816529221159276,
+        "positive_rate": 0.9521732403715145
+      },
+      "fit_seconds": 78.4
+    }
+  }
+}

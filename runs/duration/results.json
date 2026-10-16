@@ -1,0 +1,136 @@
+{
+  "config": {
+    "data": {
+      "dir": "data",
+      "train_month": "2024-01",
+      "test_month": "2024-02",
+      "n_train": 1000000,
+      "n_test": 500000,
+      "val_frac": 0.1
+    },
+    "models": [
+      "baseline",
+      "linear",
+      "hgb",
+      "lightgbm",
+      "mlp"
+    ],
+    "hgb": {
+      "max_iter": 500,
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 63
+    },
+    "lightgbm": {
+      "n_estimators": 2000,
+      "learning_rate": 0.05,
+      "num_leaves": 127,
+      "early_stopping_rounds": 50
+    },
+    "mlp": {
+      "hidden": [
+        256,
+        128
+      ],
+      "dropout": 0.1,
+      "emb_dim": 16,
+      "epochs": 8,
+      "batch_size": 4096,
+      "lr": 0.001,
+      "patience": 2
+    },
+    "seed": 0,
+    "out_dir": "runs"
+  },
+  "results": {
+    "baseline": {
+      "val": {
+        "mae_min": 4.057512704125765,
+        "rmse_min": 6.877160210440623,
+        "r2": 0.6625523543395866,
+        "median_abs_pct_err": 23.063307644848734
+      },
+      "test": {
+        "mae_min": 4.23920605932349,
+        "rmse_min": 7.136428016950967,
+        "r2": 0.6524332944577997,
+        "median_abs_pct_err": 23.451776649746172
+      },
+      "fit_seconds": 0.1
+    },
+    "linear": {
+      "val": {
+        "mae_min": 3.3798446199559025,
+        "rmse_min": 5.768984830591936,
+        "r2": 0.7625419413641086,
+        "median_abs_pct_err": 18.655040282318364
+      },
+      "test": {
+        "mae_min": 3.5179997058064383,
+        "rmse_min": 5.857633102642977,
+        "r2": 0.7658356808968272,
+        "median_abs_pct_err": 19.199075310624337
+      },
+      "fit_seconds": 6.6
+    },
+    "hgb": {
+      "val": {
+        "mae_min": 2.7498527283756324,
+        "rmse_min": 4.763161791240594,
+        "r2": 0.8381253710520475,
+        "median_abs_pct_err": 15.499802785361474
+      },
+      "test": {
+        "mae_min": 2.9094950130406274,
+        "rmse_min": 4.965269075193832,
+        "r2": 0.8317473297766252,
+        "median_abs_pct_err": 15.816780898598326
+      },
+      "fit_seconds": 36.0
+    },
+    "lightgbm": {
+      "val": {
+        "mae_min": 2.6085098874387307,
+        "rmse_min": 4.585580513409355,
+        "r2": 0.8499704643108387,
+        "median_abs_pct_err": 14.563609007469616
+      },
+      "test": {
+        "mae_min": 2.7740115769236464,
+        "rmse_min": 4.830538195854299,
+        "r2": 0.8407544044755978,
+        "median_abs_pct_err": 14.910787415442794
+      },
+      "fit_seconds": 46.3,
+      "feature_importance_gain": {
+        "trip_distance": 2880601.0428599473,
+        "DOLocationID": 158442.4103039615,
+        "PULocationID": 116460.7900832668,
+        "tod_cos": 83858.39878903981,
+        "tod_sin": 47436.837656590156,
+        "dow": 36643.854285228066,
+        "hour": 28690.98203675635,
+        "ratecode": 26953.20165369101,
+        "is_weekend": 21116.29175315611,
+        "vendor": 2313.5357099873945,
+        "same_zone": 1453.3792590005323,
+        "passenger_count": 1372.039893665351,
+        "log_distance": 0.0
+      }
+    },
+    "mlp": {
+      "val": {
+        "mae_min": 2.882886933853626,
+        "rmse_min": 5.0325127891050885,
+        "r2": 0.8193001078557138,
+        "median_abs_pct_err": 16.045614557604758
+      },
+      "test": {
+        "mae_min": 3.1145582192720176,
+        "rmse_min": 5.339587157203578,
+        "r2": 0.805422890316234,
+        "median_abs_pct_err": 16.747162647105547
+      },
+      "fit_seconds": 87.2
+    }
+  }
+}

@@ -1,0 +1,200 @@
+Channels:
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /scratch/bhatia.dh/conda/envs/taxi
+
+  added / updated specs:
+    - python=3.11
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main 
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-52_gnu 
+  bzip2              pkgs/main/linux-64::bzip2-1.0.8-h5eee18b_6 
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2026.9.25-h06a4308_0 
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.44-h9e0c5a2_3 
+  libexpat           pkgs/main/linux-64::libexpat-2.9.0-h7354ed3_0 
+  libffi             pkgs/main/linux-64::libffi-3.4.8-h06d3fd0_3 
+  libgcc             pkgs/main/linux-64::libgcc-15.2.0-h69a1729_8 
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-15.2.0-h166f726_8 
+  libnsl             pkgs/main/linux-64::libnsl-2.0.0-h5eee18b_0 
+  libstdcxx          pkgs/main/linux-64::libstdcxx-15.2.0-h39759b7_8 
+  libuuid            pkgs/main/linux-64::libuuid-1.41.5-h5eee18b_0 
+  libxcb             pkgs/main/linux-64::libxcb-1.17.0-h9b100fa_0 
+  libzlib            pkgs/main/linux-64::libzlib-1.3.2-h47b2149_0 
+  ncurses            pkgs/main/linux-64::ncurses-6.6-hfaaeb4e_0 
+  openssl            pkgs/main/linux-64::openssl-3.5.9-h1b28b03_0 
+  packaging          pkgs/main/linux-64::packaging-26.3-py311h06a4308_0 
+  pip                pkgs/main/noarch::pip-26.2.1-pyhc872135_0 
+  pthread-stubs      pkgs/main/linux-64::pthread-stubs-0.3-h47b2149_2 
+  python             pkgs/main/linux-64::python-3.11.17-hd9cb797_0 
+  readline           pkgs/main/linux-64::readline-8.3-hc2a1206_0 
+  setuptools         pkgs/main/linux-64::setuptools-84.0.0-py311h06a4308_0 
+  sqlite             pkgs/main/linux-64::sqlite-3.53.4-h795bf6d_0 
+  tk                 pkgs/main/linux-64::tk-8.6.15-h54e0aa7_0 
+  tzdata             pkgs/main/noarch::tzdata-2026c-he532380_0 
+  wheel              pkgs/main/linux-64::wheel-0.48.0-py311h06a4308_0 
+  xorg-libx11        pkgs/main/linux-64::xorg-libx11-1.8.13-h65de747_0 
+  xorg-libxau        pkgs/main/linux-64::xorg-libxau-1.0.12-h9b100fa_0 
+  xorg-libxdmcp      pkgs/main/linux-64::xorg-libxdmcp-1.1.5-h9b100fa_0 
+  xorg-xorgproto     pkgs/main/linux-64::xorg-xorgproto-2025.1-h47b2149_0 
+  xz                 pkgs/main/linux-64::xz-5.8.4-h140a991_0 
+  zlib               pkgs/main/linux-64::zlib-1.3.2-h47b2149_0 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+#
+# To activate this environment, use
+#
+#     $ conda activate taxi
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+Requirement already satisfied: pip in /scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages (26.2.1)
+Looking in indexes: https://download.pytorch.org/whl/cpu
+Collecting torch
+  Downloading torch-2.14.1%2Bcpu-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (37 kB)
+Collecting filelock (from torch)
+  Using cached filelock-3.32.3-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions>=4.10.0 (from torch)
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: setuptools>=77.0.3 in /scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages (from torch) (84.0.0)
+Collecting sympy>=1.13.3 (from torch)
+  Using cached sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx>=2.5.1 (from torch)
+  Using cached networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+Collecting jinja2 (from torch)
+  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec>=0.8.5 (from torch)
+  Using cached fsspec-2026.7.0-py3-none-any.whl.metadata (10 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch)
+  Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch)
+  Using cached markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Downloading torch-2.14.1%2Bcpu-cp311-cp311-manylinux_2_28_x86_64.whl (196.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.2/196.2 MB 156.7 MB/s  0:00:01
+Using cached fsspec-2026.7.0-py3-none-any.whl (206 kB)
+Using cached networkx-3.6.1-py3-none-any.whl (2.1 MB)
+Using cached sympy-1.14.0-py3-none-any.whl (6.3 MB)
+Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Using cached filelock-3.32.3-py3-none-any.whl (98 kB)
+Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Using cached markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Installing collected packages: mpmath, typing-extensions, sympy, networkx, MarkupSafe, fsspec, filelock, jinja2, torch
+
+Successfully installed MarkupSafe-3.0.3 filelock-3.32.3 fsspec-2026.7.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.6.1 sympy-1.14.0 torch-2.14.1+cpu typing-extensions-4.16.0
+Obtaining file:///scratch/bhatia.dh/nyc-taxi-ml
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting numpy (from taxi==0.1.0)
+  Using cached numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting pandas (from taxi==0.1.0)
+  Using cached pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+Collecting pyarrow (from taxi==0.1.0)
+  Downloading pyarrow-26.0.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+Collecting scikit-learn>=1.4 (from taxi==0.1.0)
+  Using cached scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+Collecting lightgbm (from taxi==0.1.0)
+  Downloading lightgbm-4.7.0-py3-none-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (18 kB)
+Requirement already satisfied: torch>=2.3 in /scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages (from taxi==0.1.0) (2.14.1+cpu)
+Collecting pyyaml (from taxi==0.1.0)
+  Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting pytest (from taxi==0.1.0)
+  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting scipy>=1.10.0 (from scikit-learn>=1.4->taxi==0.1.0)
+  Using cached scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Collecting joblib>=1.4.0 (from scikit-learn>=1.4->taxi==0.1.0)
+  Using cached joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting narwhals>=2.0.1 (from scikit-learn>=1.4->taxi==0.1.0)
+  Using cached narwhals-2.27.1-py3-none-any.whl.metadata (15 kB)
+Collecting threadpoolctl>=3.5.0 (from scikit-learn>=1.4->taxi==0.1.0)
+  Using cached threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)
+Collecting cloudpickle>=3.0 (from joblib>=1.4.0->scikit-learn>=1.4->taxi==0.1.0)
+  Using cached cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+Requirement already satisfied: filelock in /scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages (from torch>=2.3->taxi==0.1.0) (3.32.3)
+Requirement already satisfied: typing-extensions>=4.10.0 in /scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages (from torch>=2.3->taxi==0.1.0) (4.16.0)
+Requirement already satisfied: setuptools>=77.0.3 in /scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages (from torch>=2.3->taxi==0.1.0) (84.0.0)
+Requirement already satisfied: sympy>=1.13.3 in /scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages (from torch>=2.3->taxi==0.1.0) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in /scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages (from torch>=2.3->taxi==0.1.0) (3.6.1)
+Requirement already satisfied: jinja2 in /scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages (from torch>=2.3->taxi==0.1.0) (3.1.6)
+Requirement already satisfied: fsspec>=0.8.5 in /scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages (from torch>=2.3->taxi==0.1.0) (2026.7.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages (from sympy>=1.13.3->torch>=2.3->taxi==0.1.0) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages (from jinja2->torch>=2.3->taxi==0.1.0) (3.0.3)
+Collecting python-dateutil>=2.8.2 (from pandas->taxi==0.1.0)
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas->taxi==0.1.0)
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting iniconfig>=1.0.1 (from pytest->taxi==0.1.0)
+  Using cached iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Requirement already satisfied: packaging>=22 in /scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages (from pytest->taxi==0.1.0) (26.3)
+Collecting pluggy<2,>=1.5 (from pytest->taxi==0.1.0)
+  Using cached pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+Collecting pygments>=2.7.2 (from pytest->taxi==0.1.0)
+  Using cached pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Using cached scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.3 MB)
+Using cached joblib-1.6.0-py3-none-any.whl (306 kB)
+Using cached cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Using cached narwhals-2.27.1-py3-none-any.whl (483 kB)
+Using cached numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
+Using cached scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+Using cached threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
+Downloading lightgbm-4.7.0-py3-none-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (3.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 36.9 MB/s  0:00:00
+Using cached pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (11.1 MB)
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading pyarrow-26.0.0-cp311-cp311-manylinux_2_28_x86_64.whl (53.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.9/53.9 MB 138.4 MB/s  0:00:00
+Using cached pytest-9.1.1-py3-none-any.whl (386 kB)
+Using cached pluggy-1.7.0-py3-none-any.whl (27 kB)
+Using cached iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Using cached pygments-2.21.0-py3-none-any.whl (1.3 MB)
+Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+Building wheels for collected packages: taxi
+  Building editable for taxi (pyproject.toml): started
+  Building editable for taxi (pyproject.toml): finished with status 'done'
+  Created wheel for taxi: filename=taxi-0.1.0-0.editable-py3-none-any.whl size=1285 sha256=7c34efb3c7ee5b76bc8898b3d16ceaba001f16636e7d3ca307550af9dc74a815
+  Stored in directory: /tmp/pip-ephem-wheel-cache-v5mfbr5v/wheels/81/55/34/bc1b0474c406719983f80766e3998b6528bed39d64c4e4112d
+Successfully built taxi
+Installing collected packages: threadpoolctl, six, pyyaml, pygments, pyarrow, pluggy, numpy, narwhals, iniconfig, cloudpickle, scipy, python-dateutil, pytest, joblib, scikit-learn, pandas, lightgbm, taxi
+
+Successfully installed cloudpickle-3.1.2 iniconfig-2.3.1 joblib-1.6.0 lightgbm-4.7.0 narwhals-2.27.1 numpy-2.4.6 pandas-3.0.6 pluggy-1.7.0 pyarrow-26.0.0 pygments-2.21.0 pytest-9.1.1 python-dateutil-2.9.0.post0 pyyaml-6.0.3 scikit-learn-1.9.1 scipy-1.17.1 six-1.17.0 taxi-0.1.0 threadpoolctl-3.7.0
+torch 2.14.1+cpu sklearn 1.9.1
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 22 47.6M   22 10.9M    0     0  19.8M      0  0:00:02 --:--:--  0:00:02 19.8M100 47.6M  100 47.6M    0     0  43.9M      0  0:00:01  0:00:01 --:--:-- 43.9M
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0 48.0M    0  8494    0     0  24008      0  0:34:57 --:--:--  0:34:57 23994100 48.0M  100 48.0M    0     0  52.5M      0 --:--:-- --:--:-- --:--:-- 52.4M
+Done. Files are in data/
+total 96M
+-rw-r--r-- 1 bhatia.dh users 48M Oct 16 10:41 yellow_tripdata_2024-01.parquet
+-rw-r--r-- 1 bhatia.dh users 49M Oct 16 10:41 yellow_tripdata_2024-02.parquet
+....                                                                     [100%]
+=============================== warnings summary ===============================
+tests/test_pipeline.py::test_models_beat_baseline_on_signal
+tests/test_pipeline.py::test_models_beat_baseline_on_signal
+  /scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages/sklearn/preprocessing/_target_encoder.py:342: FutureWarning: `TargetEncoder.shuffle` and `TargetEncoder.random_state` are deprecated in version 1.9 and will be removed in version 1.11. Pass a cross-validation generator as `cv` argument to specify the shuffling behaviour instead.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 2 warnings in 3.14s
