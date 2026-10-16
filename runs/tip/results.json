@@ -78,7 +78,7 @@
         "f1": 0.9816429495805021,
         "positive_rate": 0.9521732403715145
       },
-      "fit_seconds": 7.5
+      "fit_seconds": 7.9
     },
     "hgb": {
       "val": {
@@ -97,7 +97,7 @@
         "f1": 0.9816581618542763,
         "positive_rate": 0.9521732403715145
       },
-      "fit_seconds": 3.5
+      "fit_seconds": 2.9
     },
     "lightgbm": {
       "val": {
@@ -116,7 +116,7 @@
         "f1": 0.9816566159672341,
         "positive_rate": 0.9521732403715145
       },
-      "fit_seconds": 5.0,
+      "fit_seconds": 3.6,
       "feature_importance_gain": {
         "ratecode": 572423.6608958244,
         "DOLocationID": 91692.3531589508,
@@ -153,7 +153,7 @@
         "f1": 0.9816529221159276,
         "positive_rate": 0.9521732403715145
       },
-      "fit_seconds": 78.4
+      "fit_seconds": 51.4
     }
   }
 }

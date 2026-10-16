@@ -1,0 +1,78 @@
+/scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages/sklearn/preprocessing/_target_encoder.py:342: FutureWarning: `TargetEncoder.shuffle` and `TargetEncoder.random_state` are deprecated in version 1.9 and will be removed in version 1.11. Pass a cross-validation generator as `cv` argument to specify the shuffling behaviour instead.
+  warnings.warn(
+/scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+/scratch/bhatia.dh/nyc-taxi-ml/src/taxi/mlp.py:40: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  return torch.from_numpy(xn), torch.from_numpy(xc)
+task duration (regression)  train 900000  val 100000  test 500000 [2024-02]
+
+== baseline
+   mae_min: val 4.0575  test 4.2392  (0s)
+
+== linear
+   mae_min: val 3.3798  test 3.5180  (7s)
+
+== hgb
+   mae_min: val 2.7499  test 2.9095  (11s)
+
+== lightgbm
+   mae_min: val 2.6085  test 2.7740  (25s)
+
+== mlp
+    mlp epoch 1  val loss 0.0826
+    mlp epoch 2  val loss 0.0726
+    mlp epoch 3  val loss 0.0649
+    mlp epoch 4  val loss 0.0633
+    mlp epoch 5  val loss 0.0617
+    mlp epoch 6  val loss 0.0599
+    mlp epoch 7  val loss 0.0608
+    mlp epoch 8  val loss 0.0598
+   mae_min: val 2.8829  test 3.1146  (74s)
+
+model           val mae_min     test mae_min
+baseline             4.0575           4.2392
+linear               3.3798           3.5180
+hgb                  2.7499           2.9095
+lightgbm             2.6085           2.7740
+mlp                  2.8829           3.1146
+
+saved runs/duration/results.json and test_predictions.parquet
+/scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages/sklearn/preprocessing/_target_encoder.py:342: FutureWarning: `TargetEncoder.shuffle` and `TargetEncoder.random_state` are deprecated in version 1.9 and will be removed in version 1.11. Pass a cross-validation generator as `cv` argument to specify the shuffling behaviour instead.
+  warnings.warn(
+/scratch/bhatia.dh/conda/envs/taxi/lib/python3.11/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+/scratch/bhatia.dh/nyc-taxi-ml/src/taxi/mlp.py:40: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  return torch.from_numpy(xn), torch.from_numpy(xc)
+task tip (classification)  train 722617  val 80291  test 400738 [2024-02]
+
+== baseline
+   auroc: val 0.6858  test 0.6819  (0s)
+
+== linear
+   auroc: val 0.7509  test 0.7448  (8s)
+
+== hgb
+   auroc: val 0.7545  test 0.7472  (3s)
+
+== lightgbm
+   auroc: val 0.7515  test 0.7473  (4s)
+
+== mlp
+    mlp epoch 1  val loss 0.1474
+    mlp epoch 2  val loss 0.1458
+    mlp epoch 3  val loss 0.1453
+    mlp epoch 4  val loss 0.1451
+    mlp epoch 5  val loss 0.1452
+    mlp epoch 6  val loss 0.1450
+    mlp epoch 7  val loss 0.1453
+    mlp epoch 8  val loss 0.1452
+   auroc: val 0.7435  test 0.7354  (51s)
+
+model             val auroc       test auroc
+baseline             0.6858           0.6819
+linear               0.7509           0.7448
+hgb                  0.7545           0.7472
+lightgbm             0.7515           0.7473
+mlp                  0.7435           0.7354
+
+saved runs/tip/results.json and test_predictions.parquet

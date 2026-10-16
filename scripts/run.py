@@ -8,6 +8,8 @@ import argparse
 import os
 import time
 
+import numpy as np
+import pandas as pd
 from sklearn.model_selection import train_test_split
 
 from taxi import TASKS
@@ -18,6 +20,18 @@ from taxi.models import build_model
 from taxi.utils import load_config, save_json, set_seed
 
 KEY_METRIC = {"duration": "mae_min", "tip": "auroc"}
+CONTEXT = ["trip_distance", "hour", "dow", "PULocationID", "DOLocationID"]
+
+
+def save_predictions(path, task, Xte, yte, preds):
+    """Test-month predictions next to a few context columns, for plot_results.py.
+    Duration is stored in minutes; tip as P(tipped)."""
+    to_out = np.expm1 if task == "duration" else (lambda v: v)
+    df = Xte[CONTEXT].copy()
+    df["y_true"] = to_out(yte)
+    for name, p in preds.items():
+        df[name] = to_out(p)
+    df.to_parquet(path, index=False)
 
 
 def main():
@@ -42,15 +56,16 @@ def main():
     print(f"task {args.task} ({TASKS[args.task]})  train {len(Xtr)}  val {len(Xva)}  "
           f"test {len(Xte)} [{d['test_month']}]")
 
-    results = {}
+    results, preds = {}, {}
     for name in cfg["models"]:
         print(f"\n== {name}")
         t0 = time.time()
         model = build_model(name, args.task, cfg, cfg["seed"]).fit(Xtr, ytr, Xva, yva)
         fit_s = time.time() - t0
+        preds[name] = model.predict(Xte)
         results[name] = {
             "val": evaluate(args.task, yva, model.predict(Xva)),
-            "test": evaluate(args.task, yte, model.predict(Xte)),
+            "test": evaluate(args.task, yte, preds[name]),
             "fit_seconds": round(fit_s, 1),
         }
         if hasattr(model, "feature_importance"):
@@ -66,7 +81,8 @@ def main():
 
     out = os.path.join(cfg["out_dir"], args.task, "results.json")
     save_json({"config": cfg, "results": results}, out)
-    print(f"\nsaved {out}")
+    save_predictions(os.path.join(cfg["out_dir"], args.task, "test_predictions.parquet"), args.task, Xte, yte, preds)
+    print(f"\nsaved {out} and test_predictions.parquet")
 
 
 if __name__ == "__main__":
