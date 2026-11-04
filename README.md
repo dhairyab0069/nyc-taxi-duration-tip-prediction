@@ -1,5 +1,7 @@
 # NYC Taxi: Trip Duration Regression and Tip Classification
 
+[![tests](https://github.com/dhairyab0069/nyc-taxi-duration-tip-prediction/actions/workflows/tests.yml/badge.svg)](https://github.com/dhairyab0069/nyc-taxi-duration-tip-prediction/actions/workflows/tests.yml)
+
 Two supervised learning tasks on real NYC TLC yellow taxi records, each solved with
 a ladder of models from a simple baseline to gradient boosting and a neural network.
 
@@ -32,11 +34,20 @@ a ladder of models from a simple baseline to gradient boosting and a neural netw
 - Tip task uses card payments only, since cash tips are not recorded
 - Leakage checks: the duration task never sees fare or duration; the tip task never sees tip or total amount (enforced in tests)
 
+## Data
+
+NYC Taxi and Limousine Commission (TLC) yellow taxi trip records, January and February 2024, as monthly Parquet files
+(about 50 MB each). They are public; see the [TLC trip record page](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
+`scripts/download_data.sh` fetches them from the TLC's public CloudFront host
+(`https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_<YYYY-MM>.parquet`) into `data/`, which is git-ignored.
+To use other months, change `data.train_month` and `data.test_month` in `configs/default.yaml` and download those files.
+
 ## Setup and run
 
 ```bash
-pip install -e ".[dev]"
-pytest
+pip install -e ".[dev]"            # Python 3.9+; add --extra-index-url https://download.pytorch.org/whl/cpu for CPU-only torch
+pytest                             # 14 tests on synthetic trips, about 20 s, no data needed
+ruff check .                       # lint
 bash scripts/download_data.sh
 python scripts/run.py --task duration
 python scripts/run.py --task tip
@@ -51,6 +62,14 @@ python scripts/run.py --task tip --set models=[hgb,lightgbm] data.n_train=300000
 On SLURM: `sbatch scripts/slurm_setup.sh` once (environment, data, tests), then `sbatch scripts/slurm_run.sh`. Results go to `runs/<task>/results.json`, test-month predictions to `runs/<task>/test_predictions.parquet`.
 
 Figures: `python scripts/plot_results.py --out figures` (needs the prediction files).
+
+### Reproduce the headline results
+
+The tables below are the committed `runs/duration/results.json` and `runs/tip/results.json`. To regenerate them, run the two
+commands above with the default config (1,000,000 training trips sampled from January, 500,000 test trips sampled from
+February, seed 0); this took a few minutes per task on CPU on the cluster (fit times per model are in the results files).
+The two cluster runs in `logs/` agree on every metric to within 3e-7. Library versions differ between machines, so a
+fresh run on newer scikit-learn, LightGBM or PyTorch may differ in the later decimals.
 
 ## Results
 
@@ -152,7 +171,8 @@ src/taxi/metrics.py       regression and classification metrics
 scripts/run.py            train all models, evaluate on val and next month, save test predictions
 scripts/plot_results.py   report figures
 figures/                  Figures 1-5
-tests/                    cleaning, leakage, and model sanity checks on synthetic data
+tests/                    cleaning, leakage, metrics, features, baseline fallback and model sanity checks on synthetic data (14 tests)
+.github/workflows/        CI: ruff and pytest on every push
 logs/                     SLURM logs from the reported run (see logs/README.md)
 runs/                     results.json for each task (prediction parquet files are git-ignored)
 ```

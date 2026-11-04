@@ -1,8 +1,9 @@
-numpy
-pandas
-pyarrow
+numpy>=1.24
+pandas>=2.0
+pyarrow>=14
 scikit-learn>=1.4
-lightgbm
+lightgbm>=4.0
 torch>=2.3
-pyyaml
+pyyaml>=6.0
 pytest
+ruff
