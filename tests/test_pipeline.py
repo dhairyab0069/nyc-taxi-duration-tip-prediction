@@ -1,11 +1,11 @@
 import numpy as np
 import pandas as pd
+from fake import fake_trips
 
 from taxi.data import clean
 from taxi.features import task_frame
 from taxi.metrics import evaluate
 from taxi.models import build_model
-from fake import fake_trips
 
 CFG = {"hgb": {"max_iter": 50, "learning_rate": 0.1, "max_leaf_nodes": 15}}
 

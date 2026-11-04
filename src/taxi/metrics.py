@@ -1,7 +1,14 @@
 import numpy as np
-from sklearn.metrics import (accuracy_score, average_precision_score, brier_score_loss,
-                             f1_score, mean_absolute_error, mean_squared_error, r2_score,
-                             roc_auc_score)
+from sklearn.metrics import (
+    accuracy_score,
+    average_precision_score,
+    brier_score_loss,
+    f1_score,
+    mean_absolute_error,
+    mean_squared_error,
+    r2_score,
+    roc_auc_score,
+)
 
 
 def regression_metrics(y_log_true, y_log_pred):
